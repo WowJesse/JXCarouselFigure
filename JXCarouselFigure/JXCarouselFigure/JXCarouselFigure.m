@@ -169,6 +169,10 @@
 #pragma mark - collectionView datasource
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
+    //无图片数组时 显示占位图
+    if (_totolImagesCount == 0) {
+        [self setImageUrls:@[self.placeholderImage?:@""]];
+    }
     return _totolImagesCount;
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath

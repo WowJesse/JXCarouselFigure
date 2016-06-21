@@ -19,6 +19,7 @@
     JXCarouselFigureCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     if (cell.showImageView == nil) {
+        cell.backgroundColor = [UIColor lightGrayColor];
         cell.showImageView = [[UIImageView alloc] init];
         cell.showImageView.frame = cell.contentView.bounds;
         [cell.contentView addSubview:cell.showImageView];
@@ -29,7 +30,7 @@
 }
 - (void)addImageWith:(NSString *)imageStr
 {
-    if (!imageStr) {
+    if (!imageStr || [imageStr isEqualToString:@""]) {
         return;
     }
     if ([imageStr isKindOfClass:[NSString class]]) {
